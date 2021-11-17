@@ -29,6 +29,52 @@ p {display:block;}
 .fawb:before, .fawa:after {font-family:FontAwesome;text-rendering:auto;-webkit-font-smoothing:antialiased;}
 body {font-family:'Noto Sans Korean','Noto Sans KR', 'Malgun Gothic','맑은 고딕','돋움',Dotum,'굴림',Gulim,Tahoma,Verdana,Geneva,sans-serif,Apple Gothic,AppleGothic;font-size:13px;font-weight:400;color:#505050;line-height:30px; letter-spacing:-0.03em; -webkit-text-size-adjust:none;font-smoothing:antialiased;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 body{min-width:1280px; }
+/* seating */
+h1 {
+    text-align: center;
+  }
+  
+  .container {
+    width: 600px;
+    margin: auto;
+  }
+  
+  .grid td {
+    width: 80px;
+    height: 50px;
+    padding: 50px 30px;
+    border: 2px solid orange;
+    text-align: center;
+    float: left;
+    margin: 5px;
+  }
+  
+  .grid td:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+  
+  .reserved {
+    background: orange;
+    color: #fff;
+    display: inline-block;
+  }
+  
+  /* .reserved::after {
+    content: 'RESERVED'
+  } */
+  
+  /* .available::after {
+    content: 'AVAILABLE'
+  } */
+  
+  .available {
+    color: #333;
+  }
+  
+  li {
+    list-style: none;
+  }
 
 
 /*공통*/

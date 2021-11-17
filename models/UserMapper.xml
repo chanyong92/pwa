@@ -31,6 +31,20 @@
       )
   </insert>
 
+<insert id="insertSeat"> 
+    INSERT INTO react.react_seating
+    (
+      name
+      , id
+      , date
+    )
+    VALUES (
+      #{is_Name}
+      , #{is_Seat}
+      , DATE_FORMAT(now(), '%Y%m%d%H%i%s')
+      )
+  </insert>
+
   <select id="selectUserDpliCheck">
       SELECT 
         count(*) as num
@@ -38,4 +52,47 @@
       react.react_user
       WHERE useremail = #{is_Email}
   </select>
+
+  <select id="selectSeat">
+    select t1.id, t2.name from seat t1
+    left outer join react_seating t2
+    on t1.id = t2.id
+  </select>
+
+  <select id="selectLoginCheck">
+      SELECT 
+      username
+      , userorg
+      , useremail
+      , userpassword
+      , usermajor
+      , userphone
+      , userflag
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+  </select>
+
+  <select id="selectSessionLoginCheck">
+      SELECT 
+      username
+      , userorg
+      , useremail
+      , userpassword
+      , usermajor
+      , userphone
+      , userflag
+      FROM
+      react.react_user
+      WHERE useremail = #{is_Email}
+      AND userpassword = #{is_Token}
+  </select>
+
+  <update id="updateSeat">
+    UPDATE react.react_seating
+    SET 
+    id = #{is_Seat}
+    WHERE name = #{is_Name}
+  </update>
+
 </mapper>

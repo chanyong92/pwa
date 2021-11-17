@@ -3,34 +3,33 @@ import { Route } from "react-router-dom";
 
 // css
 import '../css/new.css';
-
-// header
-import HeaderAdmin from './Header/Header admin';
-
-// footer
-import Footer from './Footer/Footer';
-
-// login
 import LoginForm from './LoginForm';
-
-import SoftwareList from './SoftwareToolsManage/SoftwareList';
-import SoftwareView from './SoftwareToolsManage/SoftwareView';
-
 import Register from './Register/Register';
+import Seating from './seating';
+import $ from 'jquery';
+
+const {Provider, Consumer} = React.createContext()
+export {Consumer}
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      ...props
+    };
+  }
+
+  
   render () {
     return (
       <div className="App">
-        <HeaderAdmin/> 
-        <Route exact path='/' component={LoginForm} />
-        <Route path='/SoftwareList' component={SoftwareList} />
-        <Route path='/SoftwareView/:swtcode' component={SoftwareView} />
-        <Route path='/register' component={Register} />
-        <Footer/>
+        <Route exact path='/' render={() => <LoginForm oncreate={this.getName} />}/>
+        {/* <Route path='/seating' component={Seating} /> */}
+        <Route path="/seating" render={() => <Seating />} />
+        <Route path="/register" render={() => <Register />} />
       </div>
     );
   }
 }
 
-export default App;
+export default App; 

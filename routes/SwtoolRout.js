@@ -3,8 +3,8 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 
 router.post('/', (req, res, next) => {
     var type = req.query.type;
